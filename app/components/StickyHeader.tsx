@@ -21,6 +21,7 @@ const StickyHeader: React.FC = () => {
             setAddress(publicKey[0].address)
           }
         } catch (error) {
+          await adapter.disconnect()
           console.log(error)
         }
       }
@@ -46,8 +47,8 @@ const StickyHeader: React.FC = () => {
           <StarryButton
             connected={address !== undefined}
             onConnect={async () => {
+              const adapter = await getAdapter()
               try {
-                const adapter = await getAdapter()
                 await adapter.connect()
                 const publicKey = await adapter.accounts.get()
                 if (publicKey.length > 0) {
@@ -55,6 +56,7 @@ const StickyHeader: React.FC = () => {
                   console.log(publicKey[0].address)
                 }
               } catch (error) {
+                await adapter.disconnect()
                 console.log(error)
               }
             }}

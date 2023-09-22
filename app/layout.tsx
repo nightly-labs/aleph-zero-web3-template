@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       'Start your Aleph Zero journey here, without unnecessary configuration and setup. Just clone it and code on top of it. Powered by Nightly Wallet.',
     images: 'https://aleph-zero-web3-template.nightly.app/preview.png',
     card: 'summary_large_image',
+    site: '@nightly_app',
   },
   openGraph: {
     title: 'Aleph Zero Template App',
