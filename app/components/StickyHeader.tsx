@@ -21,7 +21,7 @@ const StickyHeader: React.FC = () => {
             setAddress(publicKey[0].address)
           }
         } catch (error) {
-          await adapter.disconnect()
+          await adapter.disconnect().catch(() => {})
           console.log(error)
         }
       }
@@ -56,7 +56,7 @@ const StickyHeader: React.FC = () => {
                   console.log(publicKey[0].address)
                 }
               } catch (error) {
-                await adapter.disconnect()
+                await adapter.disconnect().catch(() => {})
                 console.log(error)
               }
             }}
