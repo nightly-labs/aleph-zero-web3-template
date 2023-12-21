@@ -81,7 +81,7 @@ const StickyHeader: React.FC = () => {
                     const aleph = await getAlephZero()
                     const adapter = await getAdapter()
                     const tx = aleph.tx.balances.transfer(RECEIVER, 5_000_000_000)
-                    const signedTx = await tx.signAsync(address, { signer: adapter.signer })
+                    const signedTx = await tx.signAsync(address, { signer: adapter.signer as any })
                     const txId = await signedTx.send()
                     console.log(txId.toHex())
                     console.log(txId.toString())
