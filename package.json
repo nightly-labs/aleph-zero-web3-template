@@ -12,7 +12,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nightlylabs/wallet-selector-polkadot": "^0.1.17",
+    "@nightlylabs/wallet-selector-polkadot": "^0.1.18",
     "@react-spring/three": "9.1.1",
     "@react-spring/web": "9.1.1",
     "@react-three/drei": "4.1.8",
