@@ -1,18 +1,28 @@
-import { NightlyConnectAdapter } from '@nightlylabs/wallet-selector-polkadot'
+import { NightlyConnectAdapter } from "@nightlylabs/wallet-selector-polkadot";
 
-let _adapter: NightlyConnectAdapter | undefined
-export const getAdapter = async (persisted = true) => {
-  if (_adapter) return _adapter
+export interface ConnectionOptions {
+  disableModal?: boolean;
+  disableEagerConnect?: boolean;
+  initOnConnect?: boolean;
+}
+
+let _adapter: NightlyConnectAdapter | undefined;
+export const getAdapter = async (
+  persisted = true,
+  connectionOptions: ConnectionOptions = {}
+) => {
+  if (_adapter) return _adapter;
   _adapter = await NightlyConnectAdapter.build(
     {
       appMetadata: {
-        name: 'Aleph Zero Template',
-        description: 'Aleph Zero Template',
-        icon: 'https://docs.nightly.app/img/logo.png',
+        name: "Aleph Zero Template",
+        description: "Aleph Zero Template",
+        icon: "https://docs.nightly.app/img/logo.png",
       },
-      network: 'AlephZero',
+      network: "AlephZero",
+      persistent: persisted,
     },
-    persisted
-  )
-  return _adapter
-}
+    connectionOptions
+  );
+  return _adapter;
+};
