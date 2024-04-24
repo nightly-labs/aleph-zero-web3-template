@@ -81,7 +81,7 @@ const StickyHeader: React.FC = () => {
 
                     const aleph = await getAlephZero();
                     const adapter = await getAdapter();
-                    const tx = aleph.tx.balances.transfer(
+                    const tx = aleph.tx.balances.transferKeepAlive(
                       RECEIVER,
                       5_000_000_000
                     );
